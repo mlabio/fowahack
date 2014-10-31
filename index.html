@@ -25,7 +25,7 @@
 
 
 <div class='main'>
-
+<div id="myval">0</div>
 <canvas id="canvas" width="800" height="256" ></canvas>
 
 <p id="controls">
@@ -33,11 +33,6 @@
   &nbsp; &nbsp;
   <input type="button" id="stop_button" value="Stop">
 </p>
-
-
-
-
-<!-- ----------------------------------------------------- -->
 
 
 <script type="text/javascript">
@@ -170,6 +165,7 @@
             column = 0;
             clearCanvas();
         }
+        $("#myval").html(value);
     }
 
     function clearCanvas() {
@@ -181,7 +177,6 @@
         ctx.lineTo(canvasWidth-1, y);
         ctx.stroke();
     }
-
 </script>
 
 </div>
