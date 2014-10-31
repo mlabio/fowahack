@@ -30,7 +30,7 @@
 
 
 <div class='main'>
-<div id="myval">0</div>
+<H1>Xplodr</H1><div id="myval">0</div>
 <canvas id="canvas" width="800" height="256" style="display:none;"></canvas>
 
 <p id="controls">
@@ -50,11 +50,11 @@
                                navigator.msGetUserMedia);
 
     window.requestAnimFrame = (function(){
-      return  window.requestAnimationFrame       ||
+        return window.requestAnimationFrame       ||
               window.webkitRequestAnimationFrame ||
               window.mozRequestAnimationFrame    ||
-              function(callback, element){
-                window.setTimeout(callback, 1000 / 60);
+            function(callback, element){
+                window.setTimeout(callback, 1000/60);
               };
     })();
 
@@ -185,8 +185,9 @@
         if(offsetModel < 0){
             offsetModel = 0;   
         }
+        offsetModel = offsetModel*2/100;
         $("#myval").html(offsetModel);
-        _viewer.explode(offsetModel/256);
+        _viewer.explode(offsetModel);
     }
 
     function clearCanvas() {
@@ -208,7 +209,7 @@
         ///////////////////////////////////////////////////////////////////////////
 
             //get token and urn from url parameters
-            var token = decodeURIComponent('anJ5UYbyJ5ejQxY9ek1tDDjaJDCH');
+            var token = decodeURIComponent('O6bJnJloVLIC8ePki5X70R9hKYQm');
 
             var urn = decodeURIComponent('dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRuLTAxLjEwLjIwMTQtMDUuMTguMzEvbGlsQnJhd2xlcjIwMTQwMTI4MTYwMDMwLmYzZA==');
 
@@ -367,7 +368,7 @@
                 Autodesk.Viewing.GEOMETRY_LOADED_EVENT,
                 onGeometryLoaded);
 
-			_viewer.explode(0);
+			//_viewer.explode(offsetModel);
             //zoomAll(_viewer);
         };
 
