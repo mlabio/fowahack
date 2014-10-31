@@ -139,11 +139,15 @@
     function onError(e) {
         console.log(e);
     }
+        var hasRun = false;
+        var offsetModel = 0;
 
-    function drawTimeDomain() {
+    drawTimeDomain = function() {
+        var initVal = 0;
+
         var minValue = 9999999;
         var maxValue = 0;
-
+        
         for (var i = 0; i < amplitudeArray.length; i++) {
             var value = amplitudeArray[i] / 256;
             if(value > maxValue) {
@@ -165,7 +169,15 @@
             column = 0;
             clearCanvas();
         }
-        $("#myval").html(value);
+        if(!hasRun){
+            hasRun = true;
+            initVal = y_lo;
+        }
+        offsetModel = y_lo - 150;
+        if(offsetModel < 0){
+            offsetModel = 0;   
+        }
+        $("#myval").html(offsetModel);
     }
 
     function clearCanvas() {
