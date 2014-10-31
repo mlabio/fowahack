@@ -41,6 +41,7 @@
  <div id="viewerElement">
     </div>
 <script type="text/javascript">
+        $(document).ready(function () {
 
     // Hack to handle vendor prefixes
     navigator.getUserMedia = ( navigator.getUserMedia ||
@@ -75,6 +76,8 @@
     var canvasWidth  = 800;
     var canvasHeight = 256;
     var ctx;
+                    var _viewer;
+
 
     $(document).ready(function() {
         ctx = $("#canvas").get()[0].getContext("2d");
@@ -198,13 +201,11 @@
 
 
 //start autodesk
-        var _viewer;
 
         ///////////////////////////////////////////////////////////////////////////
         // On document ready callback
         //
         ///////////////////////////////////////////////////////////////////////////
-        $(document).ready(function () {
 
             //get token and urn from url parameters
             var token = decodeURIComponent('anJ5UYbyJ5ejQxY9ek1tDDjaJDCH');
